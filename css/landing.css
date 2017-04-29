@@ -1,0 +1,49 @@
+
+.coda-font{
+    font-family: Coda;
+}
+
+.banner-img{
+    background: rgba(76, 175, 80, 0.3) 
+}
+.banner-style{
+    text-align: left;
+    background-color:black;
+    color:#2563AB;
+}
+
+
+.usa-disclaimer {
+    text-align: center;
+  background-color: #f1f1f1;
+  font-size: 1.2rem;
+  height: 2.3rem; }
+  @media screen and (min-width: 481px) {
+    .usa-disclaimer {
+      font-size: 1.2rem; } }
+
+.usa-disclaimer-official {
+    
+  display: inline-block; }
+  .usa-disclaimer-official p {
+    margin: 3px 0;
+    display: inline-block; }
+    @media screen and (min-width: 481px) {
+      .usa-disclaimer-official p {
+        margin-top: 2px;
+        margin-bottom: 2px; } }
+  .usa-disclaimer-official img {
+      
+    /*float: left;*/
+    margin-right: 0.7rem;
+    margin-top: 1px;
+    width: 2rem; }
+
+.usa-disclaimer-stage {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: none;
+  float: right; }
+  @media screen and (min-width: 1201px) {
+    .usa-disclaimer-stage {
+      display: block; } }

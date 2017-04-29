@@ -1,0 +1,158 @@
+<html>
+
+    <head>
+        <title>CPC-NAICS</title>
+        <!--Jquery-->
+        <script type="text/javascript" language="javascript"  src = "https://code.jquery.com/jquery-1.12.4.js"></script>
+        
+        
+        <!--Bootstrap-->
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!--Data Tables-->
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+        
+        <!--Custom code-->
+        
+        <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <link rel="stylesheet" type="text/css" href="css/tables.css">
+        <script type="text/javascript" class="init" src = "script/data.js"></script>
+        <link rel="stylesheet" href="css/landing.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/cds_pop.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href='css/coda.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" class="init" src = "script/clickEvent.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/tables.css">
+        
+        <!--Load data-->
+        <script type="text/javascript" src="data/recs.json"></script>
+        <script type="text/javascript" src="data/refs.json"></script>
+        
+        
+        <style>
+        .dataTables_wrapper .dataTables_length {
+            float: right;
+            }
+            .dataTables_wrapper .dataTables_filter {
+            float: left;
+            text-align: left;
+                
+            }
+            .dataTables_filter input { 
+                width: 100%;
+                height: auto;
+            }
+            .headerDivider {
+                 border-right:1px solid lightgrey; 
+                 height:1000;
+
+            }
+            .dataTables_wrapper {
+                font-family: "HelveticaNeue-Light";
+                font-weight:100;
+                font-size: 13px;
+                *zoom: 1;
+                zoom: 1;
+            }
+            .explain{
+                padding-left:10em;
+            }
+
+            .download {
+                background-color:#459ec7;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                border-radius:6px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:12px;
+                padding:6px 31px;
+                text-decoration:none;
+            }
+            .download:hover {
+                background-color:#00aceb;
+            }
+            .download:active {
+                position:relative;
+                top:1px;
+            }
+
+
+
+            
+        </style>
+    </head>
+   	
+<body>
+     <!-- Header -->
+    <section class="disclaimer-bar">
+
+            <div class="usa-disclaimer ">
+                <div class="container usa-disclaimer-official ">
+                  <img src="img/usa-flag.png" alt="U.S. flag">
+                  <p>An Experimental Project</p>
+                </div>
+            </div>
+        <div class="container coda-font">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" align="left" >
+                  <h3>CPC - NAICS  <br> 
+                      <span style="font-size:50%">c o n c o r d a n c e</span></h3>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " align = "right">
+                    <br>
+                    <a href= "#" id = "explainBtn" class="explain">What is this?</a>
+                    <a href= "data/objects.json" download class="explain">Download</a>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                      <!-- Modal content -->
+                      <div class="modal-content" align="left">
+                        <span class="close">&times;</span>
+                        <h3>CPC to NAICS Concordance</h3>
+                        <h5>A prototype for linking innovation activity to economic activity</h5>
+                        <p style='font-size:12'>Using Natural Language Processing (NLP) techniques, 6-digit NAICS and 4-character CPC codes were associated with one another using a Normalized Cosine Similarity. The top 10 associations for each code are provided below. </p>
+                      </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container" style = "font-family:'HelveticaNeue-Light'">
+          <div class="row">
+              
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 headerDivider">
+                  <table id="example" class="" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                   
+                        </tr>
+                    </thead>
+                </table>
+              </div>
+              
+              
+              <div  class="col-lg-8 col-md-8 col-sm-8 col-xs-12 " >   
+                  <div id = "recs" style="width: 100%; height: 500px;">        
+                    </div>
+              </div>
+          </div>
+    </section>
+    <script type="text/javascript" class="init" src = "script/modal.js"></script>
+</body>
+
+</html>
