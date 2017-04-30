@@ -61,7 +61,7 @@
                 zoom: 1;
             }
             .explain{
-                padding-left:10em;
+                padding-left:1em;
             }
 
             .download {
@@ -93,31 +93,30 @@
    	
 <body>
      <!-- Header -->
-    <section class="disclaimer-bar">
+    <section class="disclaimer-bar" style="background-color:darkgrey; color:white">
 
             <div class="usa-disclaimer ">
                 <div class="container usa-disclaimer-official ">
                   <img src="img/usa-flag.png" alt="U.S. flag">
-                  <p>An Experimental Project</p>
+                  <p style = "color:darkgrey">An Experimental Project</p>
                 </div>
             </div>
-        <div class="container coda-font">
-            <div class="row">
+        <div class="container coda-font" >
+            <div class="row" >
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" align="left" >
                   <h3>CPC - NAICS  <br> 
-                      <span style="font-size:50%">c o n c o r d a n c e</span></h3>
-                    
+                      <span style="font-size:50%">concordance project</span></h3>
+                
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " align = "right">
                     <br>
-                    <a href= "#" id = "explainBtn" class="explain">What is this?</a>
-                    <a href= "data/objects.json" download class="explain">Download</a>
+                    <h4 ><a href= "#" id = "explainBtn" style = "color:white" class="explain">ABOUT</a><a href= "data/recs.json" download class="explain" style = "color:white">DOWNLOAD</a></h4>
 
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
 
                       <!-- Modal content -->
-                      <div class="modal-content" align="left">
+                      <div class="modal-content" align="left" style = "color:darkgrey">
                         <span class="close">&times;</span>
                         <h3>CPC to NAICS Concordance</h3>
                         <h5>A prototype for linking innovation activity to economic activity</h5>
@@ -131,6 +130,7 @@
         </div>
     </section>
     <section class="container" style = "font-family:'HelveticaNeue-Light'">
+        <br>
           <div class="row">
               
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 headerDivider">

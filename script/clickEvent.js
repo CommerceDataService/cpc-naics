@@ -5,6 +5,7 @@ $(document).ready(function() {
   
 var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td', function () {    
     term = table.row( this ).data().code;
+    termdesc = table.row( this ).data().desc;
     console.log( term );
    
     //Loop through rec file
@@ -23,7 +24,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
     $( "#recs" ).empty();   
     
     //Drop-in explanation text
-    $( "#recs" ).append("<div><h4>"+ searchtype+" Codes Associated With " +querytype+ " " +term+"</h4></div>" ); 
+    $( "#recs" ).append("<div><h4>"+ searchtype+" Codes Associated With " +querytype+ " " +term+"</h4><p>"+termdesc+"</div>" ); 
     
     //Populate information about matches (in array)
     for(var i=0; i < found.length;i++){
@@ -39,13 +40,22 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
             //console.log(codetemp);
             
             
+            
              $( "#recs" ).append("<div><p style='font-size:16'><strong>"+ scoretemp +"%</strong>: " + codetemp +"</p></div>" ); 
             for(var j = 0; j < founddesc.length; j++){
-                $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"</p></div>" ); 
+                
+                if(searchtype == "CPC"){
+                    urltext = "<a href=\"https://www.uspto.gov/web/patents/classification/cpc/html/def"+founddesc[j].code +".html\">Learn about CPC Subclass "+founddesc[j].code+"</a>"
+                } else {
+                    urltext = "<a href=\"https://www.census.gov/cgi-bin/sssd/naics/naicsrch?code="+founddesc[j].code +"&search=2017%20NAICS%20Search\"> Learn about NAICS "+founddesc[j].code+"</a>"
+                }
+                
+                $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"("+urltext+")</p></div>" ); 
                 console.log(founddesc[j].desc);
             };
             delete scoretemp;
             delete codetemp;
+            delete urltext;
         }
        
         console.log(i);
