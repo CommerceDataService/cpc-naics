@@ -45,9 +45,9 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
             for(var j = 0; j < founddesc.length; j++){
                 
                 if(searchtype == "CPC"){
-                    urltext = "<a href=\"https://www.uspto.gov/web/patents/classification/cpc/html/def"+founddesc[j].code +".html\">Learn about CPC Subclass "+founddesc[j].code+"</a>"
+                    urltext = "<a href=\"https://www.uspto.gov/web/patents/classification/cpc/html/def"+founddesc[j].code +".html\" target=\"_blank\">Learn about CPC Subclass "+founddesc[j].code+"</a>"
                 } else {
-                    urltext = "<a href=\"https://www.census.gov/cgi-bin/sssd/naics/naicsrch?code="+founddesc[j].code +"&search=2017%20NAICS%20Search\"> Learn about NAICS "+founddesc[j].code+"</a>"
+                    urltext = "<a href=\"https://www.census.gov/cgi-bin/sssd/naics/naicsrch?code="+founddesc[j].code +"&search=2017%20NAICS%20Search\" target=\"_blank\"> Learn about NAICS "+founddesc[j].code+"</a>"
                 }
                 
                 $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"("+urltext+")</p></div>" ); 
