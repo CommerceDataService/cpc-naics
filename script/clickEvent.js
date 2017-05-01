@@ -1,3 +1,13 @@
+//Bar Graph
+function barText(x){
+    reps = Math.round(x/5);
+    bars = "";
+    for(var i=0; i < reps; i++){
+        bars = bars.concat("|")
+    };
+    stylebar = "<span style=\"letter-spacing:-1px;font-size:150%\"><strong>"+bars + "</strong></span>"
+    return(stylebar)
+}
 
 //Click event 
 
@@ -41,7 +51,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
             
             
             
-             $( "#recs" ).append("<div><p style='font-size:16'><strong>"+ scoretemp +"%</strong>: " + codetemp +"</p></div>" ); 
+             $( "#recs" ).append("<div><p style='font-size:16'>"+barText(scoretemp)+ " <strong> "+ codetemp +":</strong> " + scoretemp +"%</p></div>" ); 
             for(var j = 0; j < founddesc.length; j++){
                 
                 if(searchtype == "CPC"){
