@@ -1,4 +1,4 @@
-//Bar Graph
+//Text Bar Graph
 function barText(x){
     reps = Math.round(x/5);
     bars = "";
@@ -10,7 +10,6 @@ function barText(x){
 }
 
 //Click event 
-
 $(document).ready(function() {
   
 var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td', function () {    
