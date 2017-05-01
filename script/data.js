@@ -3,6 +3,7 @@ out = $(document).ready(function() {
   
     "pageLength": 15,
     "bInfo" : false,
+    "bSort" : false,
     "bLengthChange": false,
     "bFilter": true,
     "bInfo": false,

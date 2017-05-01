@@ -1,4 +1,4 @@
-//Text Bar Graph
+//Bar Graph
 function barText(x){
     reps = Math.round(x/5);
     bars = "";
@@ -10,6 +10,7 @@ function barText(x){
 }
 
 //Click event 
+
 $(document).ready(function() {
   
 var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td', function () {    
@@ -37,6 +38,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
     
     //Populate information about matches (in array)
     for(var i=0; i < found.length;i++){
+       
         for(var k = 0; k < found[i].matches.length; k++){
             
             //For the kth match
