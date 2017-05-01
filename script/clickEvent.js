@@ -61,7 +61,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
                 }
                 
                 $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"("+urltext+")</p></div>" ); 
-                console.log(founddesc[j].desc);
+                //console.log(founddesc[j].desc);
             };
             delete scoretemp;
             delete codetemp;
