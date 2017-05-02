@@ -1,4 +1,4 @@
-//Bar Graph
+//Text Bar Graph 
 function barText(x){
     reps = Math.round(x/5);
     bars = "";
@@ -7,7 +7,21 @@ function barText(x){
     };
     stylebar = "<span style=\"letter-spacing:-1px;font-size:150%\"><strong>"+bars + "</strong></span>"
     return(stylebar)
-}
+};
+
+//keyword block
+function keywordBlocks(words){
+    first = "&nbsp;&nbsp;";
+    if(words.length > 5){
+        countword = 5;
+    } else {
+        countword = words.length;
+    }
+    for(var i=0; i < countword;i++){
+        first = first.concat("<p class=\"keyword2\">"+words[i] +"</p>");
+    }
+    return(first)
+};
 
 //Click event 
 
@@ -34,7 +48,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
     $( "#recs" ).empty();   
     
     //Drop-in explanation text
-    $( "#recs" ).append("<div><h4>"+ searchtype+" Codes Associated With " +querytype+ " " +term+"</h4><p>"+termdesc+"</div>" ); 
+    $( "#recs" ).append("<div class=\"scroll\"><div><h4>"+ searchtype+" Codes Associated With " +querytype+ " " +term+"</h4><p>"+termdesc+"</div>" ); 
     
     //Populate information about matches (in array)
     for(var i=0; i < found.length;i++){
@@ -45,14 +59,15 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
             codetemp = found[i].matches[k].code
             scoretemp = found[i].matches[k].score;
             
-            //Retrieve descriptions
+            //Retrieve descriptions for each match
             founddesc = $(refs.data).filter(function (i,n){return n.code == codetemp});
             //console.log(scoretemp);
             //console.log(codetemp);
             
+            //Populate keyword blocks
+                out = keywordBlocks(found[i].matches[k].keywords);
             
-            
-             $( "#recs" ).append("<div><p style='font-size:16'>"+barText(scoretemp)+ " <strong> "+ codetemp +":</strong> " + scoretemp +"%</p></div>" ); 
+             $( "#recs" ).append("<hr><div><p style='font-size:16'>"+barText(scoretemp)+ " <strong> "+ codetemp +":</strong> " + scoretemp +"%</p></div>" ); 
             for(var j = 0; j < founddesc.length; j++){
                 
                 if(searchtype == "CPC"){
@@ -61,8 +76,11 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
                     urltext = "<a href=\"https://www.census.gov/cgi-bin/sssd/naics/naicsrch?code="+founddesc[j].code +"&search=2017%20NAICS%20Search\" target=\"_blank\"> Learn about NAICS "+founddesc[j].code+"</a>"
                 }
                 
-                $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"("+urltext+")</p></div>" ); 
-                console.log(founddesc[j].desc);
+                
+                
+                //Push out new text
+                $( "#recs" ).append("<div><p style='font-size:12;color:grey' class='explain'>"+ founddesc[j].desc +"("+urltext+")</p></div>"+out ); 
+                //console.log(founddesc[j].desc);
             };
             delete scoretemp;
             delete codetemp;
@@ -71,7 +89,7 @@ var table = $('#example').DataTable(); $('#example tbody').on( 'mouseover', 'td'
        
         console.log(i);
     };
-    
+    $( "#recs" ).append("</div>"); 
     
     }); 
 } );
